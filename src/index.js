@@ -18,19 +18,15 @@ class App extends React.Component {
                 q: videos
             }
         })
-        console.log(response);
-       
+
+        this.setState({
+           listVideos:response?.data?.items
+        })
     };
     
     
     render() {
 
-        this.setState({listVideos: [
-            {key:"lkjkljldfj",text: "kajdfhakjsdlfç"},
-            {key:"lkjkljldfj",text: "kajdfhakjsdlfç"},
-            {key:"lkjkljldfj",text: "kajdfhakjsdlfç"}
-        ]})
-        
         return (
             <div className="ui container" style={{ marginTop: '30px' }}>
 
@@ -45,7 +41,6 @@ class App extends React.Component {
                 <SearchBar onSubmit={this.onSubmitForm} />
 
                 <ViedoList videoList={this.state.listVideos}/>
-
             </div>
         );
     }

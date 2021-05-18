@@ -1,6 +1,8 @@
 import React from 'react';
 
-const VideoItem = () => {
+const VideoItem = ({video}) => {
+
+    console.log(video)
     
     return(
         <div>
