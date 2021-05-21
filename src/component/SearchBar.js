@@ -6,10 +6,8 @@ class SearchBar extends React.Component {
     state = {}  
 
     onSubmitForm = event => {
-
         event.preventDefault();
         let obj;
-
         /*
             A interface FormData fornece uma maneira fácil de construir um 
             conjunto de pares chave/valor representando campos de um elemento 
@@ -18,10 +16,7 @@ class SearchBar extends React.Component {
             que um form utilizaria se o tipo de codificação estivesse configurado como 
             "multipart/form-data".
         */
-
         const formData = new FormData(document.forms.myform);
-       
-
         /*
             O método FormData.entries() retorna um iterator permitindo percorrer todos os 
             valores de chave/valor contidos nesse objeto. A chave de cada par é um objeto 
@@ -36,9 +31,7 @@ class SearchBar extends React.Component {
             for(var pair of formData.entries()) {
                 console.log(pair[0]+ ', '+ pair[1]);
             }
-}
-        */
-        
+        */ 
         for(var pair of formData.entries()) {
             obj = {[pair[0]] : pair[1]};
         }
@@ -53,14 +46,6 @@ class SearchBar extends React.Component {
         this.props.onSubmit(obj);
     }
 
-
-
-    onChangeInput = event => {
-        let name = event.target.name
-        let value = event.target.value
-        this.setState({[name]: value})
-    }
-    
     render() {
         return (
                 <div className="search-bar ui segment">

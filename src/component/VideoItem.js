@@ -1,12 +1,12 @@
 import React from 'react';
 
-const VideoItem = ({video}) => {
-
-    console.log(video)
-    
-    return(
-        <div>
-           <p>Video Item</p> 
+const VideoItem = ({ video, onClick }) => {
+    return (
+        <div className="item" key={video.id} onClick={()=> onClick(video)}>
+            <img className="ui image" src={video?.snippet?.thumbnails?.default?.url} alt={video?.snippet?.title} />
+            <div className="content">
+                <p>{video?.snippet?.title}</p>
+            </div>
         </div>
     );
 
