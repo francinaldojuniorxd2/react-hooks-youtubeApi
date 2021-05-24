@@ -1,11 +1,10 @@
 import React from 'react';
-import Input from './input'
 
-class SearchBar extends React.Component {
+import Input from './input';
 
-    state = {}  
+const SearchBar = ({onSubmit}) => {
 
-    onSubmitForm = event => {
+    const onSubmitForm = event => {
         event.preventDefault();
         let obj;
         /*
@@ -31,11 +30,11 @@ class SearchBar extends React.Component {
             for(var pair of formData.entries()) {
                 console.log(pair[0]+ ', '+ pair[1]);
             }
-        */ 
-        for(var pair of formData.entries()) {
-            obj = {[pair[0]] : pair[1]};
+        */
+        for (var pair of formData.entries()) {
+            obj = { [pair[0]]: pair[1] };
         }
-    
+
         /*
             Aqui estou acessando as propriedades passadas 
             do componente pai para o filho, estou utilizando a
@@ -43,18 +42,18 @@ class SearchBar extends React.Component {
             estado do formúlário para a função de calback que
             está amazenada no *onSumit*.
         */
-        this.props.onSubmit(obj);
+        onSubmit(obj);
     }
 
-    render() {
-        return (
-                <div className="search-bar ui segment">
-                    <form onSubmit={this.onSubmitForm} className="ui form" id='myform'>  
-                        <Input/>
-                    </form>
-                </div>
-        );
-    }
+
+    return (
+        <div className="search-bar ui segment">
+            <form onSubmit={onSubmitForm} className="ui form" id='myform'>
+                <Input />
+            </form>
+        </div>
+    );
+
 }
 
 export default SearchBar;

@@ -1,10 +1,8 @@
 import React from 'react';
 
-class Input extends React.Component {
-
-    render() {
+const Input = () => {
         return (
-            <div className="field">
+            <div className="fidel">
                 <label for="videos">Video Search</label>
                 <input
                     id="videos"
@@ -13,6 +11,7 @@ class Input extends React.Component {
                 />
             </div>
         );
-    }
+    
 }
+
 export default Input;
