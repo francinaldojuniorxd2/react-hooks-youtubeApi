@@ -1,2 +1,0 @@
-item do arquivo2
-item2 do arquivo2
